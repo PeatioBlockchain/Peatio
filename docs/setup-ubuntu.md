@@ -21,30 +21,42 @@
 11. Setup the nginx reverse-proxy
 
 ### Step 1: Install Ruby
-
-Install the ruby build dependencies:
-
+Update
 ```shell
-sudo apt-get install git curl zlib1g-dev build-essential \
-  libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \
-  libxml2-dev libxslt1-dev libcurl4-openssl-dev libffi-dev
+sudo apt-get update
 ```
 
-Install [rvm](https://rvm.io):
+Installing rbenv using a Installer:
 
 ```shell
-gpg --keyserver hkp://keys.gnupg.net \
-    --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
-                7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+sudo apt-get install git-core curl zlib1g-dev build-essential \
+                     libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 \
+                     libxml2-dev libxslt1-dev libcurl4-openssl-dev \
+                     python-software-properties libffi-dev
+cd
+git clone git://github.com/sstephenson/rbenv.git .rbenv
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+exec $SHELL
 
-\curl -sSL https://get.rvm.io | bash -s stable --ruby=2.5.0 --gems=rails
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+exec $SHELL
 ```
 
-If you want to skip fetching documentation when installing gems,
-do the following:
+Install Ruby through rbenv:
+
+```shell
+rbenv install 2.5.0
+rbenv global 2.5.0
+```
+
+Install bundler:
 
 ```shell
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
+gem install bundler
+rbenv rehash
 ```
 
 ### Step 2: Install MySQL
