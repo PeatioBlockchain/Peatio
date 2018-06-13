@@ -84,13 +84,13 @@ Please follow instructions [here](https://www.rabbitmq.com/install-debian.html):
 
 ```shell
 # add rabbitmq debian repo
-sudo apt-add-repository 'deb http://www.rabbitmq.com/debian/ testing main'
-curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add -
+echo 'deb http://www.rabbitmq.com/debian/ testing main' |
+sudo tee /etc/apt/sources.list.d/rabbitmq.list
+wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc |
+sudo apt-key add -
 
 # install rabbitmq
 sudo apt-get update
-# If error: the following signatures couldn’t be verified because the public key is not available
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 #Change your server KEY
 
 sudo apt-get install rabbitmq-server
 
