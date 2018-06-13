@@ -1,10 +1,4 @@
-# Setup local development environment on Ubuntu 14.04
-
-## Docker & peatio-workbench
-
-#### We advice you to use power of [docker](https://www.docker.com) and [peatio-workbench](https://github.com/rubykube/peatio-workbench) as local development environment
-
-#### Follow [this](setup-with-docker.md) guide for container-based development environmetnt setup
+# Setup local development environment on Ubuntu 16.04
 
 ### Overview
 
@@ -65,13 +59,13 @@ rbenv rehash
 sudo apt-get install mysql-server mysql-client libmysqlclient-dev
 ```
 
-Login to mysql and set the password for the root user
-
 Add the environement variable (ideally in .bashrc, and don't forget to `$ source ~/.bashrc` after editing the file)
 
-    export DATABASE_HOST=<host of your sql>
-    export DATABASE_USER=<username for root usually>
-    export DATABASE_PASS=<pwd for root>
+    echo 'export DATABASE_HOST=<localhost>' » ~/.bashrc 
+    echo 'export DATABASE_USER=<username for root usually>' » ~/.bashrc 
+    echo 'export DATABASE_PASS=<pwd for root>' » ~/.bashrc
+
+$ source ~/.bashrc
 
 ### Step 3: Install Redis
 
