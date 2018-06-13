@@ -35,8 +35,8 @@ gem 'country_select', '~> 2.1.0'
 
 gem 'gon', '~> 5.2.0'
 gem 'pusher'
-gem 'eventmachine', '~> 1.0.4', require: false
-gem 'em-websocket', '~> 0.5.1', require: false
+gem 'eventmachine', '~> 1.0.4', require: true
+gem 'em-websocket', '~> 0.5.1', require: true
 
 gem 'simple_form', '~> 3.1.0'
 gem 'sass-rails'
@@ -63,10 +63,10 @@ gem 'jwt', '~> 2.1'
 gem 'email_validator', '~> 1.6'
 gem 'validate_url', '~> 1.0.2'
 gem 'clipboard-rails', '~> 1.7'
-gem 'god', '~> 0.13.7', require: false
-gem 'mini_racer', '~> 0.1', require: false
+gem 'god', '~> 0.13.7', require: true
+gem 'mini_racer', '~> 0.1', require: true
 gem 'arel-is-blank', '~> 1.0'
-gem 'sentry-raven', '~> 2.7', require: false
+gem 'sentry-raven', '~> 2.7', require: true
 gem 'memoist', '~> 0.16'
 gem 'method-not-implemented', '~> 1.0'
 gem 'passgen', '~> 1.0'
@@ -95,7 +95,7 @@ group :test do
   gem 'rack_session_access', '~> 0.1'
   gem 'webmock',             '~> 3.3'
   gem 'database_cleaner',    '~> 1.6'
-  gem 'mocha',               '~> 1.4', require: false
+  gem 'mocha',               '~> 1.4', require: true
   gem 'factory_bot_rails',   '~> 4.8'
   gem 'timecop',             '~> 0.9'
 end
