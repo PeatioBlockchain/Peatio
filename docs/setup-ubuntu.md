@@ -91,7 +91,6 @@ sudo apt-key add -
 
 # install rabbitmq
 sudo apt-get update
-
 sudo apt-get install rabbitmq-server
 
 # start the rabbitmq serveer
@@ -193,9 +192,9 @@ Clone the project:
 ```shell
 mkdir code
 cd code
-git clone https://github.com/rubykube/peatio.git
+git clone https://github.com/PeatioBlockchain/peatio.git
 cd peatio
-git checkout 1-5-stable  // Choose your version, but make sure you'll install the same version for peatio-trading-ui
+git checkout 1-8-stable  // Choose your version, but make sure you'll install the same version for peatio-trading-ui
 bundle install
 ```
 
@@ -218,13 +217,13 @@ A development key/secret pair for development/test
 is provided in `config/application.yml`.
 PLEASE USE IT IN DEVELOPMENT/TEST ENVIRONMENT ONLY!
 
-Set pusher-related settings in `config/application.yml`.
+Set pusher-related settings in `vim config/application.yml`.
 
 You can always find more details about pusher configuration at [pusher website](http://pusher.com)
 
 #### Setup bitcoind rpc endpoint
 
-Edit `config/seed/currencies.yml`.
+Edit `vim config/seed/currencies.yml`.
 
 Replace `username:password` and `port`.
 `username` and `password` should only contain letters and numbers,
@@ -232,8 +231,13 @@ Replace `username:password` and `port`.
 
 #### Setup database:
 
+Edit `vim config/database.yml`.
+Replace Database: Hostname, username and password.
+
 ```shell
-bundle exec rake db:setup
+rake db:create
+rake db:migrate 
+rake db:seed
 ```
 
 #### Run daemons
@@ -322,6 +326,10 @@ PLATFORM_ROOT_URL: http://ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com
 
 Refer to the release note here : https://github.com/rubykube/peatio/blob/master/docs/releases/1.5.0.md
 
+Start Trading UI
+```shell
+$ bundle exec rails server -b 0.0.0.0 -p 4000
+```
 
 ### Step 11. Install nginx to setup a reverse proxy
 
@@ -354,7 +362,7 @@ server {
 }
 ```
 
-Make sure to replace `http://peatio.local` with your actual server DNS
+Make sure to replace `http://peatio.local and 127.0.0.1` with your actual server DNS
 
 Verify that the syntax of the config file is valid : `$ sudo nginx -t`
 
