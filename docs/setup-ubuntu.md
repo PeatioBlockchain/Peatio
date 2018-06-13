@@ -85,10 +85,10 @@ Please follow instructions [here](https://www.rabbitmq.com/install-debian.html):
 
 ```shell
 # add rabbitmq debian repo
-echo 'deb http://www.rabbitmq.com/debian/ testing main' |
-sudo tee /etc/apt/sources.list.d/rabbitmq.list
-wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc |
-sudo apt-key add -
+    echo 'deb http://www.rabbitmq.com/debian/ testing main' |
+    sudo tee /etc/apt/sources.list.d/rabbitmq.list
+    wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc |
+    sudo apt-key add -
 
 # install rabbitmq
 sudo apt-get update
