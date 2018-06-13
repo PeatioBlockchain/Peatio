@@ -73,7 +73,7 @@ Be sure to install the latest stable Redis, as the package,
 the distro one can be outdated:
 
 ```shell
-sudo apt-add-repository -y ppa:rwky/redis
+sudo add-apt-repository ppa:chris-lea/redis-server
 sudo apt-get update
 sudo apt-get install redis-server
 ```
@@ -89,6 +89,10 @@ curl http://www.rabbitmq.com/rabbitmq-signing-key-public.asc | sudo apt-key add 
 
 # install rabbitmq
 sudo apt-get update
+# If error: the following signatures couldn’t be verified because the public key is not available
+```shell
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 3B4FE6ACC0B21F32 #Change your server KEY
+```
 sudo apt-get install rabbitmq-server
 
 # start the rabbitmq serveer
