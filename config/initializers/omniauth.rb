@@ -10,7 +10,10 @@ Rails.application.config.middleware.use OmniAuth::Builder do
                  }
                }
     when 'google'
-      provider :google_oauth2, ENV.fetch('GOOGLE_CLIENT_ID'), ENV.fetch('GOOGLE_CLIENT_SECRET')
+      provider :google_oauth2, ENV.fetch('GOOGLE_CLIENT_ID'), ENV.fetch('GOOGLE_CLIENT_SECRET'),
+              {
+                   redirect_uri:ENV.fetch('GOOGLE_OAUTH2_REDIRECT_URL')
+              }
 
     when 'barong'
       provider :barong,
